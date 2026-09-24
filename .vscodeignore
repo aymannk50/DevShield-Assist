@@ -1,0 +1,10 @@
+.vscode/**
+.github/**
+src/**
+tests/**
+node_modules/**
+dist/index.js
+action.yml
+tsconfig.json
+.gitignore
+*.vsix

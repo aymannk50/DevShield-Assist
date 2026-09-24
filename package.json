@@ -1,29 +1,63 @@
 {
   "name": "devshield-assist",
+  "displayName": "DevShield Assist",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "publisher": "aymannk50",
+  "description": "Detect exposed secrets and insecure coding patterns directly inside Visual Studio Code.",
+  "icon": "images/icon.png",
+ "galleryBanner": {
+  "color": "#111633",
+  "theme": "dark"
+},
+"main": "./dist/extension.js",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "keywords": [
+    "security",
+    "scanner",
+    "secrets",
+    "vulnerability",
+    "devsecops",
+    "code analysis"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "devshield.scanCurrentFile",
+        "title": "DevShield: Scan Current File"
+      },
+      {
+        "command": "devshield.scanWorkspace",
+        "title": "DevShield: Scan Entire Project"
+      }
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "scan": "tsx src/cli.ts",
     "check": "tsc --noEmit",
-    "build:action": "ncc build src/action.ts -o dist"
+    "build:action": "ncc build src/action.ts -o dist",
+    "build:extension": "esbuild src/extension.ts --bundle --platform=node --external:vscode --outfile=dist/extension.js",
+    "vscode:prepublish": "npm run check && npm run build:extension"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aymannk50/DevShield-Assist.git"
+    "url": "https://github.com/aymannk50/DevShield-Assist.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "author": "Ayman Naeem",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aymannk50/DevShield-Assist/issues"
   },
   "homepage": "https://github.com/aymannk50/DevShield-Assist#readme",
   "devDependencies": {
     "@types/node": "^26.6.2",
+    "@types/vscode": "^1.100.0",
     "@vercel/ncc": "^0.45.0",
+    "esbuild": "^0.28.2",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3"
   },

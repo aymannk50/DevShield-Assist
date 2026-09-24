@@ -31465,7 +31465,7 @@ const securityRules = [
         title: "Unsafe eval usage",
         description: "eval() can execute untrusted code.",
         severity: "high",
-        pattern: /\beval\s*\(/,
+        pattern: /(?:^|[=(:,;{}]\s*)\beval\s*\(/,
         recommendation: "Replace eval() with a safer parsing or execution method.",
     },
     {
