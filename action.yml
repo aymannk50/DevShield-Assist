@@ -1,0 +1,21 @@
+name: "DevShield Assist"
+description: "Scan source code for exposed secrets and insecure coding patterns."
+author: "Ayman Naeem"
+
+branding:
+  icon: "shield"
+  color: "purple"
+
+inputs:
+  path:
+    description: "Directory to scan"
+    required: false
+    default: "."
+
+outputs:
+  findings-count:
+    description: "Number of security findings"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

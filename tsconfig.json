@@ -5,7 +5,6 @@
     "moduleResolution": "Bundler",
     "types": ["node"],
     "strict": true,
-    "noEmit": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },

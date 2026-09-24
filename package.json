@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scan": "tsx src/cli.ts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "build:action": "ncc build src/action.ts -o dist"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,11 @@
   "homepage": "https://github.com/aymannk50/DevShield-Assist#readme",
   "devDependencies": {
     "@types/node": "^26.6.2",
+    "@vercel/ncc": "^0.45.0",
     "tsx": "^4.23.15",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.1"
   }
 }
